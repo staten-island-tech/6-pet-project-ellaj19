@@ -11,7 +11,7 @@ mia.buy({"title": "poopy shoes", "atk": 5})
 print(mia.__dict__)
  """
 
-
+""" 
 class pet:
     def __init__(self, name, happiness, clean, hunger, fear, age):
         self.name = name
@@ -25,8 +25,11 @@ class pet:
         question = input(f"do you want to play with {answer1}?")
         if question == "yes":
             self.__happiness += 10
+            self.hunger +=5
         elif question == "no":
             self.__happiness -= 10
+        elif self.__happiness == 100:
+             print("great job taking care of your meal")
         else:
             print("invalid answer")
     def feed(self):
@@ -39,6 +42,7 @@ class pet:
             print("wrong choice")
         else:
             print("invalid answer")
+
     def wash(self):
         question2 = input(f"do you want to clean {answer1}?")
         if question2 == "yes":
@@ -52,11 +56,11 @@ class pet:
     def secret(self):
         question3 = input("do you want to know a secret?")
         if question3 == "yes":
-            self.__fear +=10
+            self.fear +=10
             print("wash the hamster")
-            hamster.clean()
+            hamster.wash()
         elif question3 == "no":
-            self.__clean -= 5 
+            self.clean -= 5 
             print("wash your hands")
         else:
             print("invalid answer")
@@ -79,13 +83,30 @@ while hamster.age <= 24:
     hamster.show_status()
     if hamster.hunger <= -50:
         print("your hamster has died of obesity")
-    if hamster.hunger >= 100:
+    elif hamster.hunger >= 100:
         print(f"uh oh, {answer1} has died of hunger")
-    if hamster.clean <= 0:
-                print("your hamster passed away from its own odor")
-    if hamster.fear >= 100:
-                print("your hamster died of terror")
-    if hamster.age == 24:
-            print("your hamster passed away of old age")
-    
+    elif hamster.clean <= 0:
+        print("your hamster passed away from its own odor")
+    elif hamster.fear >= 100:
+        print("your hamster died of terror")
+    elif hamster.age == 24:
+        print("your hamster passed away of old age") """
 
+
+def isValid(email,password):
+    if "@" not in email:
+        return "not valid email"
+    for i in range(password):
+        if i.upper not in password:
+            return "invalid password: needs at least 1 uppercase letter"
+    return{'email':email, 'password':password}
+
+isValid("mialin@gmail.com","Ecstaticunicorn")
+
+
+
+
+
+
+    
+  
