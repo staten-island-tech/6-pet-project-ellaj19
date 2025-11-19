@@ -93,15 +93,16 @@ while hamster.age <= 24:
         print("your hamster passed away of old age") """
 
 
-def isValid(email,password):
+def isValid():
+    email = input("what is your email?")
+    password = input("what is your password?")
     if "@" not in email:
         return "not valid email"
-    for i in range(password):
-        if i.upper not in password:
-            return "invalid password: needs at least 1 uppercase letter"
+    if any(char.isupper() for char in password) == False:
+      return "invalid password: needs at least 1 uppercase letter"
     return{'email':email, 'password':password}
 
-isValid("mialin@gmail.com","Ecstaticunicorn")
+print(isValid())
 
 
 
