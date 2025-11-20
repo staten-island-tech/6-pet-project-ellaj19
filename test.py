@@ -100,6 +100,10 @@ def isValid():
         return "not valid email"
     if any(char.isupper() for char in password) == False:
       return "invalid password: needs at least 1 uppercase letter"
+    elif any(char.isdigit() for char in password) == False:
+       return "invalid password: needs at least 1 number"
+    elif any(len(password) >= 8 for char in password) == False:
+       return "invalid password: needs to be at least 8 characters long"
     return{'email':email, 'password':password}
 
 print(isValid())
