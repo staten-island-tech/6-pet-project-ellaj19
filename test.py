@@ -23,10 +23,10 @@ class pet:
     def play(self):
         question = input(f"do you want to play with {answer1}? yes/no")
         if question == "yes":
-            self.__happiness += 10
+            self.__happiness += 2
             self.hunger +=5
         elif question == "no":
-            self.__happiness -= 10
+            self.__happiness -= 2
         elif self.__happiness == 100:
              print("great job taking care of your meal")
         else:
@@ -53,24 +53,44 @@ class pet:
              print("great job taking care of your meal")
         else:
             print("invalid answer")
+    def secret(self):
+        question3 = input("do you want to know a secret? yes/no")
+        if question3 == "yes":
+            self.fear +=10
+            print("the hamster is growing bigger and bigger...")
+            question4 = input("do you want to pet the hamster?")
+            print(f"{answer1}'s jaws are widening... you can see its sharp teeth bulging out, eyes rabid, claws scratching against your neck...")
+            print("you watch as you're being swallowed by what was once your hamster, accepting your fate as piercing teeth gnaw at you.")
+        elif question3 == "no":
+            self.clean -= 5 
+            print("wash your hands")
+        else:
+            print("invalid answer")
     def show_status(self):
         answer = input("it's the end of the day. do you want to see stats? yes/no")
         if answer == "yes":
             self.age += 1
-            print(f"{answer1}'s happiness is at {self.__happiness}%. {answer1}'s hunger is at {self.hunger}%. {answer1}'s fear is at {self.fear}%. {answer1}'s cleanliness is at {self.clean}%. {answer1}'s age is {self.age} days old")
-        else:
+            print(f"{answer1}'s happiness is at {self.__happiness}%. {answer1}'s hunger is at {self.hunger}%. {answer1}'s cleanliness is at {self.clean}%. {answer1}'s age is {self.age} days old. your fear is at {self.fear}%.")
+        elif answer == "no":
             self.age += 1
             print(f"okay. {answer1} is sleeping.")
+        else:
+            self.age += 1
+            print(f"yuh")
 answer1 = input("what is your pet hamster's name?")
 print(f"hello, {answer1}")
-hamster = pet({answer1},50,50,25,25,12) 
+hamster = pet({answer1},50,50,25,25,5) 
 print(f"welcome home, {answer1}! let's interact with the hamster.")
-while hamster.age <= 24:
+while hamster.age <= 30:
     hamster.play()
     hamster.feed()
     hamster.wash()
     hamster.show_status()
-    if hamster.hunger <= -50:
+    if hamster.age == 10:
+       print(hamster.secret())
+       if "yes" in hamster.secret():
+        break
+    elif hamster.hunger <= -50:
         print("your hamster has died of obesity")
         break
     elif hamster.hunger >= 100:
@@ -82,9 +102,11 @@ while hamster.age <= 24:
     elif hamster.fear >= 100:
         print("your hamster died of terror")
         break
-    elif hamster.age == 24:
+    elif hamster.age == 30:
         print("your hamster passed away of old age")
         break
+   
+
 
 """ def isValid():
     email = input("what is your email?")
