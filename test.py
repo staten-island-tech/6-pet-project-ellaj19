@@ -23,7 +23,7 @@ class pet:
         self.age = age
     def play(self):
         question = input(f"do you want to play with {answer1}? yes/no")
-        while "yes" or "no" not in question:
+        while "yes" not in question and "no" not in question:
             question = input(f"do you want to play with {answer1}? yes/no")
         if question == "yes":
                 self.__happiness += 2
@@ -37,6 +37,8 @@ class pet:
 
     def feed(self):
         question1 = input(f"do you want to feed {answer1}? yes/no")
+        while "yes" not in question1 and "no" not in question1:
+            question1 = input(f"do you want to feed {answer1}? yes/no")
         if question1 == "yes":
             self.hunger -=10
             print("the hamster is getting bigger...")
@@ -45,11 +47,10 @@ class pet:
             self.hunger += 10 
             print("wrong choice")
             print(". . .")
-        else:
-            print("invalid answer")
-            print(". . .")
     def wash(self):
         question2 = input(f"do you want to clean {answer1}? yes/no")
+        while "yes" not in question2 and "no" not in question2:
+            question2 = input(f"do you want to clean {answer1}? yes/no")
         if question2 == "yes":
             self.clean +=10
             print("thats not fur...")
@@ -58,11 +59,10 @@ class pet:
             self.clean -= 5 
             print("wash your hands")
             print(". . .")
-        else:
-            print("invalid answer")
-            print(". . .")
     def secret(self):
         question3 = input("do you want to know a secret? yes/no")
+        while "yes" not in question3 and "no" not in question3:
+            question3 = input("do you want to know a secret? yes/no")
         if question3 == "yes":
             self.fear += 5
             print("the hamster is growing bigger and bigger...")
@@ -75,15 +75,11 @@ class pet:
                     self.fear += 5
             elif question4 == "no":
                     print("wash your hands")
-                    print(". . .")
-                
+                    print(". . .")        
         elif question3 == "no":
             self.clean -= 5 
             print("wash your hands")
             print(". . .")
-        else:
-                print("invalid answer")
-                print(". . .")
     def show_status(self):
         answer = input("it's the end of the day. do you want to see stats? yes/no")
         if answer == "yes":
@@ -100,7 +96,7 @@ class pet:
             print(". . .")
 answer1 = input("what is your pet hamster's name?")
 print(f"hello, {answer1}")
-hamster = pet({answer1},50,50,25,25,5) 
+hamster = pet({answer1},50,50,25,25,8) 
 print(f"welcome home, {answer1}! let's interact with the hamster.")
 while hamster.age <= 30:
     hamster.play()
@@ -108,12 +104,15 @@ while hamster.age <= 30:
     hamster.wash()
     hamster.show_status()
     if hamster.age == 10:
-       hamster.secret()
+        hamster.secret()
+        if hamster.fear == 35:
+            print("you died haha")
+            break
     elif hamster.age == 15:
         hamster.secret()
-    elif hamster.fear == 35:
-        print("you died haha")
-        break
+        if hamster.fear == 35:
+            print("you died haha")
+            break
     elif hamster.hunger <= -50:
         print("your hamster has died of obesity")
         break
