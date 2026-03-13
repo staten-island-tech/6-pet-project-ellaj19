@@ -12,7 +12,7 @@ print(mia.__dict__)
  """
 
 """ """ 
-x = "live"
+""" x = "live"
 class pet:
     def __init__(self, name, happiness, clean, hunger, fear, age):
         self.name = name
@@ -127,7 +127,7 @@ while hamster.age <= 30:
         break
     elif hamster.age == 30:
         print("your hamster passed away of old age")
-        break
+        break """
     
    
 
@@ -149,7 +149,25 @@ print(isValid()) """
 
 
 
+class ThemeParkRide:
+    def __init__(self, pass_type, rides_used, ride_limit, ride_name):
+        self.pass_type = pass_type
+        self.rides_used = rides_used
+        self.ride_limit = ride_limit
+        self.ride_name = ride_name
+    def isallowed(self, pass_type, rides_used, ride_limit, ride_name):   
+        if "Premium" not in pass_type:
+            print(False)
+        elif ride_limit <= rides_used:
+            print(False)
+        elif pass_type == "Premium" and ride_limit > rides_used:
+            rides_used += 1
+            print(True)
 
+
+mia = ThemeParkRide("Premium", 25, 25, "cyclone")
+
+mia.isallowed("Premium", 15, 25, "cyclone")
 
     
   
